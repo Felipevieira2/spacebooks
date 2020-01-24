@@ -1,0 +1,15 @@
+[24-Jan-2020 13:13:46 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home2/notpro21/public_html/spacebooks/bootstrap/app.php:14
+Stack trace:
+#0 /home2/notpro21/public_html/spacebooks/artisan(20): require_once()
+#1 {main}
+  thrown in /home2/notpro21/public_html/spacebooks/bootstrap/app.php on line 14
+[24-Jan-2020 13:14:21 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home2/notpro21/public_html/spacebooks/bootstrap/app.php:14
+Stack trace:
+#0 /home2/notpro21/public_html/spacebooks/artisan(20): require_once()
+#1 {main}
+  thrown in /home2/notpro21/public_html/spacebooks/bootstrap/app.php on line 14
+[24-Jan-2020 13:29:49 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home2/notpro21/public_html/spacebooks/bootstrap/app.php:14
+Stack trace:
+#0 /home2/notpro21/public_html/spacebooks/artisan(20): require_once()
+#1 {main}
+  thrown in /home2/notpro21/public_html/spacebooks/bootstrap/app.php on line 14
