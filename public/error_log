@@ -1,0 +1,28 @@
+[24-Jan-2020 10:10:51 America/Fortaleza] PHP Warning:  require(/home2/notpro21/public_html/spacebooks/vendor/autoload.php): failed to open stream: No such file or directory in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:10:51 America/Fortaleza] PHP Warning:  require(/home2/notpro21/public_html/spacebooks/vendor/autoload.php): failed to open stream: No such file or directory in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:10:51 America/Fortaleza] PHP Fatal error:  require(): Failed opening required '/home2/notpro21/public_html/spacebooks/vendor/autoload.php' (include_path='.:/opt/php71/lib/php') in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:11:25 America/Fortaleza] PHP Warning:  require(/home2/notpro21/public_html/spacebooks/vendor/autoload.php): failed to open stream: No such file or directory in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:11:25 America/Fortaleza] PHP Warning:  require(/home2/notpro21/public_html/spacebooks/vendor/autoload.php): failed to open stream: No such file or directory in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:11:25 America/Fortaleza] PHP Fatal error:  require(): Failed opening required '/home2/notpro21/public_html/spacebooks/vendor/autoload.php' (include_path='.:/opt/php71/lib/php') in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:11:27 America/Fortaleza] PHP Warning:  require(/home2/notpro21/public_html/spacebooks/vendor/autoload.php): failed to open stream: No such file or directory in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:11:27 America/Fortaleza] PHP Warning:  require(/home2/notpro21/public_html/spacebooks/vendor/autoload.php): failed to open stream: No such file or directory in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:11:27 America/Fortaleza] PHP Fatal error:  require(): Failed opening required '/home2/notpro21/public_html/spacebooks/vendor/autoload.php' (include_path='.:/opt/php71/lib/php') in /home2/notpro21/public_html/index.php on line 24
+[24-Jan-2020 10:13:57 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home2/notpro21/public_html/spacebooks/bootstrap/app.php:14
+Stack trace:
+#0 /home2/notpro21/public_html/index.php(38): require_once()
+#1 {main}
+  thrown in /home2/notpro21/public_html/spacebooks/bootstrap/app.php on line 14
+[24-Jan-2020 10:14:29 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home2/notpro21/public_html/spacebooks/bootstrap/app.php:14
+Stack trace:
+#0 /home2/notpro21/public_html/index.php(38): require_once()
+#1 {main}
+  thrown in /home2/notpro21/public_html/spacebooks/bootstrap/app.php on line 14
+[24-Jan-2020 10:21:15 America/Fortaleza] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home2/notpro21/public_html/spacebooks/bootstrap/app.php:14
+Stack trace:
+#0 /home2/notpro21/public_html/index.php(38): require_once()
+#1 {main}
+  thrown in /home2/notpro21/public_html/spacebooks/bootstrap/app.php on line 14
+[24-Jan-2020 13:31:55 UTC] PHP Fatal error:  Declaration of Symfony\Component\Translation\TranslatorInterface::setLocale($locale) must be compatible with Symfony\Contracts\Translation\LocaleAwareInterface::setLocale(string $locale) in /home2/notpro21/public_html/spacebooks/vendor/symfony/translation/TranslatorInterface.php on line 24
+[24-Jan-2020 13:31:57 UTC] PHP Fatal error:  Declaration of Symfony\Component\Translation\TranslatorInterface::setLocale($locale) must be compatible with Symfony\Contracts\Translation\LocaleAwareInterface::setLocale(string $locale) in /home2/notpro21/public_html/spacebooks/vendor/symfony/translation/TranslatorInterface.php on line 24
+[24-Jan-2020 13:38:50 UTC] PHP Fatal error:  Declaration of Symfony\Component\Translation\TranslatorInterface::setLocale($locale) must be compatible with Symfony\Contracts\Translation\LocaleAwareInterface::setLocale(string $locale) in /home2/notpro21/public_html/spacebooks/vendor/symfony/translation/TranslatorInterface.php on line 24
+[24-Jan-2020 13:40:09 UTC] PHP Fatal error:  Declaration of Symfony\Component\Translation\TranslatorInterface::setLocale($locale) must be compatible with Symfony\Contracts\Translation\LocaleAwareInterface::setLocale(string $locale) in /home2/notpro21/public_html/spacebooks/vendor/symfony/translation/TranslatorInterface.php on line 24
