@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/jogo/matar_monstro', function () {
+    
     return view('desafio');
 });
