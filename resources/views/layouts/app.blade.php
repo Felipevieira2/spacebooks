@@ -43,5 +43,5 @@
        
     </div>
 </body>
-<script src="{{ URL::asset('spacebooks/public/js/jogo_monstro.js') }}"></script>
+<script src="{{ URL::asset('public/js/jogo_monstro.js') }}"></script>
 </html>
