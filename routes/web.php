@@ -19,3 +19,8 @@ Route::get('/jogo/matar_monstro', function () {
     
     return view('desafio');
 });
+
+Route::get('/vuetify', function () {
+    
+    return view('vuetify');
+});
