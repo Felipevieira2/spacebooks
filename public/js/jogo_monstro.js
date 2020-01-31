@@ -137,8 +137,8 @@ let app = new Vue({
             this.createObjToLogAtack(attack, lifeNew, lifeOld, 'Monstro', 'alert-success');
         },   
         getRandomIntInclusive(max, min){
-            let min = Math.ceil(min);
-            let max = Math.floor(max);
+            var min = Math.ceil(min);
+            var max = Math.floor(max);
 
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
