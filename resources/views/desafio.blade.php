@@ -24,7 +24,7 @@
                 </div>
             </div>
             <br>
-            <div class="card" v-show="game.start">
+            <div class="card" v-show="game.start && !game.end">
                 <div class="card-header">Mate o monstro</div>
                 <div class="card-body">                   
                     <button @click="basic_attack()" >Atacar</button>
@@ -33,13 +33,16 @@
                     <button @click="surrender()">Desistir</button>                    
                 </div>
             </div>
-            <div class="card" v-show="!game.start">
+            <div class="card" v-show="!game.start || game.end">
                 <div class="card-header">Menu</div>
-                <div class="card-body">         
-                    <div class="alert alert-danger" v-show="game.surrender" role="alert">
-                        <strong>Você desistiu!</strong>
-                    </div>          
-                    <button @click="startGame()">@{{ game.textBtnStart }}</button>                                              
+                    <div class="card-body">         
+                        <div class="alert alert-danger" v-show="game.surrender" role="alert">
+                            <strong>Você desistiu!</strong>
+                        </div>      
+                        <div class="alert" :class="game.classResult" v-show="!game.surrender  && game.end" role="alert">
+                            <strong>@{{ game.txtResult }}</strong>
+                        </div>     
+                        <button @click="startGame()">@{{ game.textBtnStart }}</button>                                              
                 </div>                
             </div>
             <br>
