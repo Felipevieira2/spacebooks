@@ -35,8 +35,8 @@ let app = new Vue({
         game:{
             result:'',
             start: false,
+            restart: true,
             end: false,
-            surrender: false,
             textBtnStart: 'Começar o game'
         }   
     },
@@ -48,10 +48,7 @@ let app = new Vue({
                 this.game.result = "Vocẽ foi completamente aniquilado!";
                 this.game.end = true;
             }
-            if ( this.game.start ){
-                this.log.alerts.push( { 'message': 'O Jogador recebeu ' + this.log.lastAtackInPlayer + ' de dano, vida reduzida de ' + dataOld + ' para ' + dataNew, 'class': 'alert-success'} );
-            }
-                    
+
             if( dataNew <= 20 )
             {  
                 this.player.classColorLife = 'bg-danger';
@@ -60,7 +57,9 @@ let app = new Vue({
             if( dataNew > 20 )
             {  
                 this.player.classColorLife = 'bg-success';
-            }              
+            }  
+            
+                      
             
         },
         'monster.life': function(dataNew, dataOld){
@@ -69,8 +68,7 @@ let app = new Vue({
                 this.game.result = "VOCÊ ACABOU COM O SEU OPONENTE! UOUUU \O/";
                 this.game.end = true;
             }
-
-            this.log.alerts.push( { 'message' : 'O Monstro recebeu ' + this.log.lastAtackInMonster + ' de dano, vida reduzida de ' + dataOld + ' para ' + dataNew, 'class' : 'alert-danger' });
+                                       
             if( dataNew <= 20 )
             {  
                 this.monster.classColorLife = 'bg-danger';
@@ -83,61 +81,67 @@ let app = new Vue({
         }
     },
     methods: {
-        basic_attack() {            
-            this.attack_basic_in_the_monster();
-            this.attack_basic_in_the_player();         
+        basic_attack() { 
+            this.attackBasicInThePlayer();             
+            this.attackBasicInTheMonster();            
         },
         startGame(){
             this.player.life = 100;
             this.monster.life = 100;
-            this.game.start = true;
             this.log.alerts = [];
+            this.game.start = true;                        
         },
         surrender(){            
             this.game.start = false;
             this.game.end = true;
-            this.game.surrender = true;
             this.game.textBtnStart = 'Recomeçar';
             this.log.alerts.push({ 'message' : 'Vocễ desistiu, vida reduzida de ' + this.player.life + ' para 0' , 'class' : 'alert-danger' })
             this.player.life = 0;
         },
-        special_attack() {            
-            this.attack_special_in_the_the_monster();
-            this.attack_basic_in_the_player();              
+        special_attack() {        
+            this.attackBasicInThePlayer();     
+            this.attackSpecialInTheMonster();                        
         },
         getCura(){
             let heal = this.getRandomIntInclusive(7, 20);                        
             this.log.lastHealInPlayer = heal;
+            let lifeOld  =  this.player.life;
             this.player.life +=   heal;
-            this.log.alerts.push( { 'message' : 'O Monstro recebeu 0 de dano', 'class' : 'alert-danger' }); 
-            this.attack_basic_in_the_player(); 
-            
+            this.log.alerts.push( { 'message': 'O Jogador recebeu  ' + heal + ' de cura, vida aumentou de ' + lifeOld + ' para ' + this.player.life, 'class':  'alert-success' });                                                      
+            this.attackBasicInThePlayer(); 
+                                 
         },
-        attack_basic_in_the_monster()
+        attackBasicInTheMonster()
         {   
-            let attack =  this.getRandomIntInclusive(this.player.basic_attack.max, this.player.basic_attack.min);
+            let attack =  this.getRandomIntInclusive(this.player.basic_attack.max, this.player.basic_attack.min);            
+            let monsterLifeOld = this.monster.life;
+            let monsterLifeNew = this.monster.life -= attack;
 
-            this.log.lastAtackInMonster = attack;
-            this.monster.life -= attack
+            this.log.alerts.push( { 'message' : 'O Monstro recebeu ' + attack + ' de dano, vida reduzida de ' + monsterLifeOld + ' para ' +   monsterLifeNew , 'class' :  'alert-success' });
         },
-        attack_basic_in_the_player()
-        {   
+        attackBasicInThePlayer()
+        {                        
             let attack = this.getRandomIntInclusive(this.monster.attack.max, this.monster.attack.min);
-
-            this.log.lastAtackInPlayer = attack;
-            this.player.life  -= attack;
+            let lifeOld = this.player.life;
+         
+            let lifeNew = this.player.life  -= attack;
+            
+            this.log.alerts.push( { 'message': 'O Jogador recebeu ' + attack + ' de dano, vida reduzida de ' + lifeOld + ' para ' + lifeNew, 'class':  'alert-danger' });                                                      
+           
         },
-        attack_special_in_the_the_monster()
+        attackSpecialInTheMonster()
         {      
             let attack = this.getRandomIntInclusive(this.player.special_attack.max, this.player.special_attack.min);
             
-            this.log.lastAtackInMonster = attack;
-            this.monster.life  -= attack;
+            lifeOld = this.monster.life;
+            lifeNew = this.monster.life  -= attack;
 
+            this.log.alerts.push( { 'message': 'O Monstro recebeu ' + attack + ' de dano, vida reduzida de ' + lifeOld + ' para ' + lifeNew, 'class':  'alert-success' }); 
         },   
         getRandomIntInclusive(max, min) {
             min = Math.ceil(min);
             max = Math.floor(max);
+
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
         
