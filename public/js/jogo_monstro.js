@@ -2,7 +2,7 @@
 let app = new Vue({
     el:'#main',
     data:{
-        player :{
+        player: {
             life: 100,
             classColorLife: 'bg-success',
             basic_attack: { 
@@ -30,10 +30,10 @@ let app = new Vue({
             alerts:[],
         },
         game:{
-            txtResult:'',
-            classResult:'',
+            txtResult: '',
+            classResult: '',
             start: false,
-            surrender:false,
+            surrender: false,
             restart: true,
             end: false,
             textBtnStart: 'Começar o Jogo.'
@@ -42,38 +42,32 @@ let app = new Vue({
     watch:{
         'player.life': function(dataNew, dataOld){
 
-            if  ( dataNew <= 0 )
-            {   
+            if  ( dataNew <= 0 ){   
                 this.game.txtResult = "Vocẽ foi completamente aniquilado!";
                 this.game.classResult = 'alert-danger';
                 this.game.end = true;                
             }
-            if( dataNew <= 20 )
-            {  
+            if( dataNew <= 20 ){  
                 this.player.classColorLife = 'bg-danger';
                 
             }
-            if( dataNew > 20 )
-            {  
+            if( dataNew > 20 ){  
                 this.player.classColorLife = 'bg-success';
             }           
             
         },
         'monster.life': function(dataNew, dataOld){
-            if  ( dataNew <= 0 )
-            {   
+            if  ( dataNew <= 0 ){   
                 this.game.txtResult = "VOCÊ ACABOU COM O SEU OPONENTE! UOUUU \O/";
                 this.game.classResult = 'alert-success';
                 this.game.end = true;
             }
                                        
-            if( dataNew <= 20 )
-            {  
+            if( dataNew <= 20 ){  
                 this.monster.classColorLife = 'bg-danger';
             } 
 
-            if( dataNew > 20 )
-            {  
+            if( dataNew > 20 ){  
                 this.monster.classColorLife = 'bg-success';
             }    
         },
@@ -110,7 +104,7 @@ let app = new Vue({
             this.log.alerts.push({ 'message' : 'Vocễ desistiu, vida reduzida de ' + this.player.life + ' para 0' , 'class' : 'alert-danger' })
             this.player.life = 0;
         },
-        special_attack() {        
+        special_attack(){        
             this.attackBasicInThePlayer();     
             this.attackSpecialInTheMonster();                        
         },
@@ -122,40 +116,33 @@ let app = new Vue({
             this.attackBasicInThePlayer(); 
                                  
         },
-        attackBasicInTheMonster()
-        {   
+        attackBasicInTheMonster(){   
             let attack =  this.getRandomIntInclusive(this.player.basic_attack.max, this.player.basic_attack.min);            
             let lifeNew = this.monster.life;
             let lifeOld = this.monster.life -= attack;
             this.createObjToLogAtack(attack, lifeNew, lifeOld, 'Monstro', 'alert-success');  
         },
-        attackBasicInThePlayer()
-        {                        
+        attackBasicInThePlayer(){                        
             let attack = this.getRandomIntInclusive(this.monster.attack.max, this.monster.attack.min);
             let lifeOld = this.player.life;         
             let lifeNew = this.player.life  -= attack;   
             
             this.createObjToLogAtack(attack, lifeNew, lifeOld, 'Jogador', 'alert-danger');           
         },
-        attackSpecialInTheMonster()
-        {      
-            let attack = this.getRandomIntInclusive(this.player.special_attack.max, this.player.special_attack.min);
-            
-            lifeOld = this.monster.life;
-            lifeNew = this.monster.life  -= attack;
+        attackSpecialInTheMonster(){      
+            let attack = this.getRandomIntInclusive(this.player.special_attack.max, this.player.special_attack.min);            
+            let lifeOld = this.monster.life;
+            let lifeNew = this.monster.life  -= attack;
 
             this.createObjToLogAtack(attack, lifeNew, lifeOld, 'Monstro', 'alert-success');
         },   
-        getRandomIntInclusive(max, min) 
-        {
-            min = Math.ceil(min);
-            max = Math.floor(max);
+        getRandomIntInclusive(max, min){
+            let min = Math.ceil(min);
+            let max = Math.floor(max);
 
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
-        createObjToLogAtack(attack, lifeNew, lifeOld, defenderString, classString)
-        {
-            
+        createObjToLogAtack(attack, lifeNew, lifeOld, defenderString, classString){            
             this.log.alerts.push( { 'message': 'O ' + defenderString + ' recebeu ' + attack + ' de dano, vida reduzida de ' + lifeOld + ' para ' + lifeNew, 'class':  classString });                                                      
         },    
         
